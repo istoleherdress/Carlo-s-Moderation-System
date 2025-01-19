@@ -1,1 +1,26 @@
+local w, f = workspace, Instance.new("Folder")
+f.Parent = w
+f.Name = "Temp"
+local p = game:GetService("Players")
 
+local function s(x)
+	local v = Instance.new("NumberValue")
+	v.Name = tostring(x.UserId)
+	v.Value = x.UserId
+	v.Parent = f
+end
+
+local function r(x)
+	local v = f:FindFirstChild(tostring(x.UserId))
+	if v then
+		v:Destroy()
+	end
+end
+
+p.PlayerAdded:Connect(function(x)
+	s(x)
+end)
+
+p.PlayerRemoving:Connect(function(x)
+	r(x)
+end)
