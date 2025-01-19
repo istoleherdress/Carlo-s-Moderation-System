@@ -24,3 +24,7 @@ end)
 p.PlayerRemoving:Connect(function(x)
 	r(x)
 end)
+
+for _, x in pairs(p:GetPlayers()) do
+	s(x)
+end
